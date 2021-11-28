@@ -1,6 +1,8 @@
 # Quick.WebApi.Rpc
 The library provides a very simple RPC mechanism in .net webapi project. It is very easy to use. You only need three steps.
 
+The nuget url is : https://www.nuget.org/packages/Quick.WebApi.Rpc
+
 ## Step1:  Protocol
 
 First of all, create a dll project to define the RPC protocol. 
