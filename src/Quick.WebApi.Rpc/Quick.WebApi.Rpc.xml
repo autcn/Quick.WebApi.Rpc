@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Quick.WebApi.Rpc</name>
+    </assembly>
+    <members>
+        <member name="T:Quick.WebApi.Rpc.HttpRpcClient">
+            <summary>
+            It's RPC client class that Provides functions to make RPC calls.
+            </summary>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.#ctor(System.String)">
+            <summary>
+            Create an instance of HttpRpcClient with uri. It will ignore ssl certificate verification.
+            </summary>
+            <param name="uri">The uri where the RPC service is located.</param>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.#ctor(System.String,System.Boolean)">
+            <summary>
+            Create an instance of HttpRpcClient class.
+            </summary>
+            <param name="uri">The uri where the RPC service is located.</param>
+            <param name="ignoreSsl">If true, ignore ssl certificate verification, otherwise false.</param>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.#ctor(System.String,System.Net.Http.HttpMessageHandler)">
+            <summary>
+            Initializes a new instance of the System.Net.Http.HttpClient class with uri and a specific handler.
+            </summary>
+            <param name="uri">The uri where the RPC service is located.</param>
+            <param name="handler">The HTTP handler stack to use for sending requests.</param>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.#ctor(System.String,System.Net.Http.HttpMessageHandler,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="uri">The uri where the RPC service is located.</param>
+            <param name="handler">The HTTP handler stack to use for sending requests.</param>
+            <param name="disposeHandler">true if the inner handler should be disposed of by Dispose(), false if you intend to reuse the inner handler.</param>
+        </member>
+        <member name="P:Quick.WebApi.Rpc.HttpRpcClient.Uri">
+            <summary>
+            Gets the uri where the RPC service is located.
+            </summary>
+        </member>
+        <member name="E:Quick.WebApi.Rpc.HttpRpcClient.RpcReturnDataReceived">
+            <summary>
+            The event will be triggered when received RPC return data.
+            </summary>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.RegisterClientServiceProxy``1">
+            <summary>
+            Register the service proxy type to the channel.
+            </summary>
+            <typeparam name="TService">The service proxy type that will be called by user.</typeparam>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.UnRegisterClientServiceProxy``1">
+            <summary>
+            UnRegister the service proxy type in the channel.
+            </summary>
+            <typeparam name="TService">The service proxy type that will be called by user.</typeparam>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.GetClientServiceProxy``1">
+            <summary>
+            Get the service proxy from the channel.The user can use the service proxy to call RPC service.
+            </summary>
+            <typeparam name="TService">The service proxy type that will be called by user.</typeparam>
+            <returns>The instance of the service proxy.</returns>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.HttpRpcClient.SendInvocation(Quick.Rpc.SendInvocationContext)">
+            <summary>
+            Send serialized invocation data to server.
+            </summary>
+            <param name="context">The invocation context that will be used during sending.</param>
+        </member>
+        <member name="T:Quick.WebApi.Rpc.QuickRpcMiddleware">
+            <summary>
+            Represents the webapi middleware that used to handle RPC request.
+            </summary>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.QuickRpcMiddleware.#ctor(System.IServiceProvider)">
+            <summary>
+            Create an instance of QuickRpcMiddleware class with specific server provider.
+            </summary>
+            <param name="serviceProvider">An instance of service provider that used to create service instance.</param>
+        </member>
+        <member name="T:Quick.WebApi.Rpc.QuickRpcOptions">
+            <summary>
+            Represents the options used in adding rpc feature.
+            </summary>
+        </member>
+        <member name="P:Quick.WebApi.Rpc.QuickRpcOptions.MaxRequestPacketSize">
+            <summary>
+            The max packet size of RPC request. If the request packet size exceeds the value, the server will refuse to handle the request.
+            </summary>
+        </member>
+        <member name="T:Quick.WebApi.Rpc.QuickWebApiRpcExtensions">
+            <summary>
+            The class provides extented methods to enable RPC feature.
+            </summary>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.QuickWebApiRpcExtensions.AddQuickRpc(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add RPC middleware service to container.
+            </summary>
+            <param name="services">The instance of service collection.</param>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.QuickWebApiRpcExtensions.UseQuickRpc(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.String)">
+            <summary>
+            Initialize RPC middleware service with specific route and default options.
+            </summary>
+            <param name="app">The instance of IApplicationBuilder.</param>
+            <param name="route">The route path where the RPC service is located.</param>
+        </member>
+        <member name="M:Quick.WebApi.Rpc.QuickWebApiRpcExtensions.UseQuickRpc(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.String,System.Action{Quick.WebApi.Rpc.QuickRpcOptions})">
+            <summary>
+            Initialize RPC middleware service with specific route and options.
+            </summary>
+            <param name="app">The instance of IApplicationBuilder.</param>
+            <param name="route">The route path where the RPC service is located.</param>
+            <param name="optionsAction">The options for RPC middleware service.</param>
+        </member>
+    </members>
+</doc>
